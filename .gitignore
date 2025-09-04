@@ -1,24 +1,24 @@
 # Repo-specific GitIgnore ----------------------------------------------------------------------------------------------
-*.jpg
-*.jpeg
-*.png
+#*.jpg
+#*.jpeg
+#*.png
 *.bmp
 *.tif
 *.tiff
 *.heic
-*.JPG
-*.JPEG
-*.PNG
+#*.JPG
+#*.JPEG
+#*.PNG
 *.BMP
 *.TIF
 *.TIFF
 *.HEIC
-*.mp4
-*.mov
-*.MOV
+#*.mp4
+#*.mov
+#*.MOV
 *.avi
 *.data
-*.json
+#*.json
 *.cfg
 !setup.cfg
 !cfg/yolov3*.cfg
@@ -36,7 +36,7 @@ data/images/*
 !data/images/bus.jpg
 !data/*.sh
 
-results*.csv
+#results*.csv
 
 # Datasets -------------------------------------------------------------------------------------------------------------
 coco/
@@ -50,7 +50,7 @@ VOC/
 
 # Neural Network weights -----------------------------------------------------------------------------------------------
 *.weights
-*.pt
+#*.pt
 *.pb
 *.onnx
 *.engine
