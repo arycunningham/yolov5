@@ -1,39 +1,43 @@
-# ================================
-# Targeted evolution search space
-# ================================
+# =========================================
+# Static hyperparameters (mid-range values)
+# =========================================
 
-# --- Learning Rate & Scheduler ---
-lr0: [0.0005, 0.005]     # Initial learning rate — lower than default for stability
-lrf: [0.02, 0.1]         # Final learning rate factor — controls decay aggressiveness
-warmup_epochs: [2.0, 8.0]   # Warmup period — slower ramp up = more stable convergence
-momentum: [0.90, 0.98]   # Momentum — affects convergence smoothness
-weight_decay: [0.0002, 0.001] # Regularization to prevent overfitting
+# --- Learning Rate & Optimizer ---
+lr0: 0.00275              # midpoint between 0.0005 and 0.005
+lrf: 0.06                 # midpoint between 0.02 and 0.1
+momentum: 0.94            # midpoint between 0.90 and 0.98
+weight_decay: 0.0006      # midpoint between 0.0002 and 0.001
 
-# --- Loss Balance ---
-box: [0.10, 0.25]        # Box loss gain — critical for improving localization
-cls: [0.3, 0.8]          # Class loss gain — adjust to maintain classification balance
-obj: [0.7, 1.3]          # Objectness loss — ensures stable training at lower res
-iou_t: [0.20, 0.40]      # IoU training threshold — higher = stricter matches
+# --- Warmup ---
+warmup_epochs: 5.0
+warmup_momentum: 0.775
+warmup_bias_lr: 0.1
 
-# --- Advanced Stabilizers ---
-anchor_t: [2.0, 5.0]     # Anchor multiple threshold — affects anchor matching flexibility
-fl_gamma: [0.0, 1.5]     # Focal loss gamma — >0 may improve hard example learning
+# --- Loss Gains ---
+box: 0.175
+cls: 0.55
+cls_pw: 1.0
+obj: 1.0
+obj_pw: 1.0
 
-# --- Augmentation (minimal or off, since dataset is pre-augmented) ---
-hsv_h: [0.0, 0.0]        # Fixed at 0 (no color augmentation)
-hsv_s: [0.0, 0.0]
-hsv_v: [0.0, 0.0]
-degrees: [0.0, 0.0]
-translate: [0.0, 0.0]
-scale: [0.0, 0.0]
-shear: [0.0, 0.0]
-perspective: [0.0, 0.0]
-flipud: [0.0, 0.0]
-fliplr: [0.0, 0.0]
-mosaic: [0.0, 0.0]
-mixup: [0.0, 0.0]
-copy_paste: [0.0, 0.0]
+# --- IoU and Anchors ---
+iou_t: 0.30
+anchor_t: 3.5
 
-# Note:
-# - Keeping augmentation fixed removes noise from evolution.
-# - This focuses the search on parameters that actually impact convergence and localization accuracy.
+# --- Advanced ---
+fl_gamma: 0.75
+
+# --- Augmentation (fixed at 0 for no-augmentation) ---
+hsv_h: 0
+hsv_s: 0
+hsv_v: 0
+degrees: 0.0
+translate: 0.0
+scale: 0.0
+shear: 0.0
+perspective: 0.0
+flipud: 0.0
+fliplr: 0.0
+mosaic: 0.0
+mixup: 0.0
+copy_paste: 0.0
