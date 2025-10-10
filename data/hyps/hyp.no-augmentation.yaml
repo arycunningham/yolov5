@@ -4,19 +4,19 @@
 # python train.py --hyp hyp.no-augmentation.yaml
 # See https://github.com/ultralytics/yolov5/pull/3882 for YOLOv5 + Albumentations Usage examples
 
-lr0: 0.01 # initial learning rate (SGD=1E-2, Adam=1E-3)
-lrf: 0.1 # final OneCycleLR learning rate (lr0 * lrf)
+lr0: 0.0015 # initial learning rate (SGD=1E-2, Adam=1E-3)
+lrf: 0.05 # final OneCycleLR learning rate (lr0 * lrf)
 momentum: 0.937 # SGD momentum/Adam beta1
 weight_decay: 0.0005 # optimizer weight decay 5e-4
-warmup_epochs: 3.0 # warmup epochs (fractions ok)
+warmup_epochs: 6.0 # warmup epochs (fractions ok)
 warmup_momentum: 0.8 # warmup initial momentum
 warmup_bias_lr: 0.1 # warmup initial bias lr
-box: 0.1 # box loss gain
+box: 0.125 # box loss gain
 cls: 0.5 # cls loss gain
 cls_pw: 1.0 # cls BCELoss positive_weight
 obj: 1.0 # obj loss gain (scale with pixels)
 obj_pw: 1.0 # obj BCELoss positive_weight
-iou_t: 0.20 # IoU training threshold
+iou_t: 0.30 # IoU training threshold
 anchor_t: 4.0 # anchor-multiple threshold
 # anchors: 3  # anchors per output layer (0 to ignore)
 # this parameters are all zero since we want to use albumentation framework
