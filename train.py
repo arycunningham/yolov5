@@ -743,7 +743,7 @@ def main(opt, callbacks=Callbacks()):
             del hyp["anchors"], meta["anchors"]
         opt.noval, opt.nosave, save_dir = True, True, Path(opt.save_dir)  # only val/save final epoch
         # ei = [isinstance(x, (int, float)) for x in hyp.values()]  # evolvable indices
-        evolve_yaml, evolve_csv = save_dir / "hyp_evolve.yaml", save_dir / "evolve.csv"
+        evolve_yaml, evolve_csv = save_dir / "opt.yaml", save_dir / "evolve.csv"
         if opt.bucket:
             # download evolve.csv if exists
             subprocess.run(
