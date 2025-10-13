@@ -1,0 +1,40 @@
+# All-rounder for OAK-D (tight boxes, robust generalization), imgsz 416
+# Optimizer/LR (AdamW- and SGD-friendly)
+lr0: 0.0035
+lrf: 0.20
+momentum: 0.9           # for SGD; Adam(W) uses betas
+weight_decay: 0.0005
+warmup_epochs: 3.0
+warmup_momentum: 0.8
+warmup_bias_lr: 0.1
+
+# Loss gains
+box: 0.10               # ↑ to emphasize localization tightness
+cls: 0.30               # 3 classes; keep lower than defaults
+obj: 0.90               # moderate; raise if crowded scenes
+fl_gamma: 0.0           # 1.0 only if extreme class imbalance
+# For v5u/DFL heads (if enabled in your repo)
+dfl: 1.0
+
+# Anchor/IoU matching
+anchor_t: 4.0
+iou_t: 0.25             # slightly stricter than default (~0.20)
+
+# Augmentations (moderate; you already augment offline)
+hsv_h: 0.015
+hsv_s: 0.40
+hsv_v: 0.20
+degrees: 0.0
+translate: 0.08
+scale: 0.50
+shear: 0.0
+perspective: 0.0
+fliplr: 0.5
+flipud: 0.0
+mosaic: 1.0             # strong early; disabled late by --close-mosaic
+mixup: 0.05             # very light
+copy_paste: 0.10        # helpful for fire/smoke variety
+erasing: 0.0            # set 0.1–0.2 only if overfitting
+
+# Misc
+label_smoothing: 0.03
