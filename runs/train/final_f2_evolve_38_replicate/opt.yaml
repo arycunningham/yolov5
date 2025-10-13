@@ -1,4 +1,4 @@
-weights: runs/train/final_f2_evolve_38_replicate/weights/last.pt
+weights: runs/train/final_f2_evolve_38_replicate/weights/best.pt
 cfg: ''
 data: ../datasets/dataset_f2/data.yaml
 hyp:
